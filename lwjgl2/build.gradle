@@ -3,7 +3,7 @@ apply plugin: 'application'
 sourceSets.main.resources.srcDirs += [ rootProject.file('assets').path ]
 mainClassName = 'net.rptools.maptool.desktop.DesktopLauncher'
 eclipse.project.name = appName + '-desktop'
-sourceCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_11
 
 dependencies {
 	implementation "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
