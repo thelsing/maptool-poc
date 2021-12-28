@@ -1,14 +1,15 @@
 apply plugin: 'application'
 
 sourceSets.main.resources.srcDirs += [ rootProject.file('assets').path ]
-mainClassName = 'net.rptools.maptool.desktop.DesktopLauncher'
-eclipse.project.name = appName + '-desktop'
-sourceCompatibility = JavaVersion.VERSION_11
+mainClassName = 'net.rptools.maptool.desktop.MapToolSwing'
+//mainClassName = 'net.rptools.maptool.desktop.DesktopLauncher'
 
 dependencies {
 	implementation "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
 	implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 	implementation "com.github.MrStahlfelge.gdx-websockets:common:$websocketVersion"
+	implementation 'com.github.thelsing:libgdx-jogl-backend:master-SNAPSHOT'
+	implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.32'
 	implementation project(':core')
 }
 

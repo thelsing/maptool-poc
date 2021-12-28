@@ -14,16 +14,7 @@ buildscript {
 }
 
 allprojects {
-	apply plugin: 'eclipse'
-	apply plugin: 'idea'
-}
 
-configure(subprojects - project(':android')) {
-	apply plugin: 'java-library'
-	sourceCompatibility = 1.11
-	compileJava {
-		options.incremental = true
-	}
 }
 
 subprojects {
@@ -38,5 +29,3 @@ subprojects {
 		maven { url 'https://s01.oss.sonatype.org' }
 	}
 }
-
-eclipse.project.name = 'maptool' + '-parent'

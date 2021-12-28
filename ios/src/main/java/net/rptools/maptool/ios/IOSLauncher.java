@@ -5,14 +5,14 @@ import org.robovm.apple.uikit.UIApplication;
 
 import com.badlogic.gdx.backends.iosrobovm.IOSApplication;
 import com.badlogic.gdx.backends.iosrobovm.IOSApplicationConfiguration;
-import net.rptools.maptool.MapTool;
+import net.rptools.maptool.MapToolGdx;
 
 /** Launches the iOS (RoboVM) application. */
 public class IOSLauncher extends IOSApplication.Delegate {
 	@Override
 	protected IOSApplication createApplication() {
 		IOSApplicationConfiguration configuration = new IOSApplicationConfiguration();
-		return new IOSApplication(new MapTool(), configuration);
+		return new IOSApplication(new MapToolGdx(), configuration);
 	}
 
 	public static void main(String[] argv) {

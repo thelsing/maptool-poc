@@ -2,7 +2,6 @@ apply plugin: 'application'
 
 sourceCompatibility = JavaVersion.VERSION_11
 mainClassName = 'net.rptools.maptool.server.ServerLauncher'
-eclipse.project.name = appName + '-server'
 
 dependencies {
 	implementation project(':shared')

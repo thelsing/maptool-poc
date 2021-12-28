@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "org.gretty:gretty:4.0.0"
+        classpath "org.gretty:gretty:3.0.7"
     }
 }
 apply plugin: "gwt"
@@ -17,14 +17,18 @@ gwt {
     minHeapSize = '1G'
 
     src = files(file('src/main/java')) // Needs to be in front of "modules" below.
+
     modules 'net.rptools.maptool.GdxDefinition'
     devModules 'net.rptools.maptool.GdxDefinitionSuperdev'
     project.webAppDirName = 'webapp'
 
+
     compiler.strict = true
     compiler.disableCastChecking = true
+    sourceLevel = 1.11
     //// The next line can be useful to uncomment if you want output that hasn't been obfuscated.
-//	compiler.style = org.wisepersist.gradle.plugins.gwt.Style.DETAILED
+	compiler.style = org.wisepersist.gradle.plugins.gwt.Style.DETAILED
+    jsInteropExports.shouldGenerate = true
 }
 
 dependencies {
@@ -42,6 +46,8 @@ dependencies {
 //// and you can use GWT 2.9.0, which gives you access to Java 11 language features.
 	implementation "com.github.tommyettinger:gdx-backend-gwt:1.100.1"
 	implementation "com.github.tommyettinger:gdx-backend-gwt:1.100.1:sources"
+    implementation 'com.google.jsinterop:jsinterop-annotations:2.0.0:sources'
+    implementation 'org.slf4gwt:slf4gwt:1.4:sources'
 }
 
 import org.akhikhl.gretty.AppBeforeIntegrationTestTask
@@ -129,6 +135,7 @@ task addSource {
     doLast {
         sourceSets.main.compileClasspath += files(project(':core').sourceSets.main.allJava.srcDirs)
         sourceSets.main.compileClasspath += files(project(':shared').sourceSets.main.allJava.srcDirs)
+        sourceSets.main.compileClasspath += project.files("build/generated/sources/annotationProcessor/java/main")
     }
 }
 
@@ -147,16 +154,29 @@ checkGwt.war = file("war")
 
 // You can change the version below to JavaVersion.VERSION_11 if you use the 2.9.0 backend.
 sourceCompatibility = JavaVersion.VERSION_11
-sourceSets.main.java.srcDirs = [ "src/main/java/" ]
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+        resources {
+            srcDir 'src/main/java'
+        }
+        output.resourcesDir = "build/classes/java/main"
+    }
+}
+compileJava.dependsOn(processResources)
+compileJava.options.compilerArgs << '-parameters'
 
-eclipse.project.name = appName + "-html"
-
-
-configurations { lom }
+configurations {
+    lom
+}
 dependencies {
     lom "org.projectlombok:lombok:${lombokVersion}"
     implementation configurations.lom.dependencies
     annotationProcessor configurations.lom.dependencies
+    implementation 'com.axellience:vue-gwt:1.0.0'
+    annotationProcessor 'com.axellience:vue-gwt-processors:1.0.0'
 }
 
 draftCompileGwt {

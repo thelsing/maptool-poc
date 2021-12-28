@@ -10,7 +10,7 @@ import com.github.czyzby.kiwi.util.gdx.scene2d.Actors;
 import com.github.czyzby.kiwi.util.gdx.viewport.Viewports;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class MapTool extends AbstractApplicationListener {
+public class MapToolGdx extends AbstractApplicationListener {
 	/** Default application size. */
 	public static final int WIDTH = 640, HEIGHT = 480;
 

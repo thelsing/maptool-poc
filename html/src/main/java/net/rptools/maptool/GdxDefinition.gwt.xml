@@ -6,8 +6,11 @@
 	<inherits name="com.github.czyzby.kiwi.GdxKiwi" />
 	<inherits name="com.github.czyzby.websocket.GdxWebSocket" />
 	<inherits name="com.github.czyzby.websocket.GdxWebSocketGwt" />
-	<inherits name="net.rptools.maptool.MapTool" />
+	<inherits name="net.rptools.maptool.Core" />
 	<inherits name="net.rptools.maptool.Shared" />
+    <inherits name="org.slf4gwt.logging.gwt.Logging"/>
+    <inherits name='com.axellience.vuegwt.VueGWT'/>
+
     <entry-point class="net.rptools.maptool.gwt.GwtLauncher" />
     <set-configuration-property name="gdx.assetpath" value="../assets" />
     <set-configuration-property name="xsiframe.failIfScriptTag" value="FALSE"/>

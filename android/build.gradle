@@ -126,5 +126,3 @@ task run(type: Exec) {
 	def adb = path + "/platform-tools/adb"
 	commandLine "$adb", 'shell', 'am', 'start', '-n', 'net.rptools.maptool/net.rptools.maptool.android.AndroidLauncher'
 }
-
-eclipse.project.name = appName + "-android"
