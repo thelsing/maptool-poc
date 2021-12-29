@@ -4,24 +4,27 @@ import jsinterop.annotations.JsType;
 import lombok.NonNull;
 import lombok.Synchronized;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.HashSet;
 import java.util.Set;
 
-@JsType
 public class PropertyChangeSender {
-  private final Set<PropertyChangeListener> listeners = new HashSet<>();
-  @Synchronized
+  private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+
   public void addPropertyChangeListener(@NonNull PropertyChangeListener listener) {
-    listeners.add(listener);
-  }
-  @Synchronized
-  public void removePropertyChangeListener(@NonNull PropertyChangeListener listener) {
-    listeners.remove(listener);
+    this.pcs.addPropertyChangeListener(listener);
   }
 
+  /*public void addPropertyChangeListener(@NonNull String propertyName, @NonNull PropertyChangeListener listener) {
+    this.pcs.addPropertyChangeListener(propertyName, listener);
+  }*/
+
+  public void removePropertyChangeListener(@NonNull PropertyChangeListener listener) {
+    this.pcs.removePropertyChangeListener(listener);
+  }
   @Synchronized
   protected void firePropertyChange(String propertyName, Object oldValue, Object newValue) {
-    for(var listener : listeners)
-      listener.propertyChange(new PropertyChangeEvent(this, propertyName, oldValue, newValue));
+    this.pcs.firePropertyChange(propertyName, oldValue, newValue);
   }
 }

@@ -2,9 +2,9 @@ package net.rptools.maptool.lib;
 
 import jsinterop.annotations.JsType;
 import lombok.NonNull;
-import lombok.Synchronized;
 
-@JsType
+import java.beans.PropertyChangeListener;
+
 public interface Command {
   boolean isAvailable();
   String getName();
@@ -12,5 +12,6 @@ public interface Command {
   String NAME = "Name";
   String AVAILABLE = "Available";
   void addPropertyChangeListener(@NonNull PropertyChangeListener listener);
+ // void addPropertyChangeListener(@NonNull String propertyName, @NonNull PropertyChangeListener listener);
   void removePropertyChangeListener(@NonNull PropertyChangeListener listener);
 }

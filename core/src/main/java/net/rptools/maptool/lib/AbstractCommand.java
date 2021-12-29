@@ -7,7 +7,6 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@JsType
 public abstract class AbstractCommand extends PropertyChangeSender implements Command {
   @Getter
   private boolean available = true;

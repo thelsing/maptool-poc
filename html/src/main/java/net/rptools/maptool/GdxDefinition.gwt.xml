@@ -10,6 +10,7 @@
 	<inherits name="net.rptools.maptool.Shared" />
     <inherits name="org.slf4gwt.logging.gwt.Logging"/>
     <inherits name='com.axellience.vuegwt.VueGWT'/>
+    <inherits name='net.rptools.maptool.Emulation'/>
 
     <entry-point class="net.rptools.maptool.gwt.GwtLauncher" />
     <set-configuration-property name="gdx.assetpath" value="../assets" />
