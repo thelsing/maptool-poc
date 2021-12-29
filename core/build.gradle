@@ -9,7 +9,6 @@ dependencies {
 	api "org.projectlombok:lombok:$lombokVersion"
 	implementation 'com.google.jsinterop:jsinterop-annotations:2.0.0'
 	implementation 'org.slf4j:slf4j-api:1.7.32'
-	implementation 'org.slf4gwt:slf4gwt:1.4'
 	api project(':shared')
 	annotationProcessor "org.projectlombok:lombok:$lombokVersion"
 }

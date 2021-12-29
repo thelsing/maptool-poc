@@ -1,8 +1,7 @@
-# maptool
+# maptool-poc
 
-A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/tommyettinger/gdx-liftoff).
-
-Project template included simple launchers and an `AbstractApplicationListener` extension (from [Kiwi](https://github.com/crashinvaders/gdx-lml/tree/master/kiwi) library) that draws libGDX logo.
+This for the target architecture of this POC:
+![](https://www.plantuml.com/plantuml/png/dLLVQniv47_NfnZ8ItBKMteVe6rmsxiMJ0yQxWeb3rfflAj4grcaMU_vszz8bitwQcBeGt0q6ity_eoqxnFhoDFWLKJ3EdGUuOlUwMyVuQQBY64HlmysahDmq_e95_5_i8MRqONdHMmTAIMusQFtDAj0ZD0ICmqgLmSlMPFk47OOawC0RzuqeBu6lmVZTKgOW7lDe2E2v3klMuz0GUcAGNwXcrdT9XhmTCRe02s2jXOjCEMCkqQXv6O4gX9R_UYTP8J7jqTAglukTeIKahz5f53wgSQqUWi_1ZqoaL_rFFX7TLecZCAlUTBnyQXcKIAwhcUrfi3QXNH2lwKeh14s3yUJe3upK5Q5HeoQCSaAFZnyNQqFPnRaBdPjfh5Pu4kzZcZprWAbeOWbTBJh8aYKcdlkNUWWK5WPxp0mg3IYSLjdmBjdXByTpXkow8_uNgcDDf5MRXWz3YYrs55uLUpxk9DrEoMu_MCIKT_TgUBbXyzmQtNNOVpztHqWcmRkVI8mHoGgQxGk_JUOakxmJoddCQgvTwQ7QRH5gPmsP32bsnXfvwo4LG6uxdNeqAuAY0JwlCD1GZ3QUu6tSrfAdF3AHFtbDOjR0rYttMB4O30TPhLD7BLXjA1cnpsum1YtMlORUEXniIxvoeKdBEdRI0DKIwgwgz-oBGkBBrZMNBMt1gyPNEGIaPZQQGjRvyKyK8jHAoeUHrKTgaABF2C6g8Bb55L7u_Q-QY4T0fhiUt7pxW8VY-cPQVpvfaXGPTdC56CkMWz0xI4UICYGpDdiWgNvWDAxCFrR_ZkVkmHAJYmzS07-hsa3MHDXmuStP4g75_7Jzr9nsEs6Jz-RQoGMlYpikfvyTdtL-SDI7zapOMPignYN-Bv0jzoCt4NbS-U3PsWOA5GnDfJOxy5IGCWtOJTXDpEKwTRMkjn8U_Nb6-W40T6YpQFk4bWSFUs7WYso4mYi91m8f78PCMWdXipjzLDwRTB5vonlNzUpVXTAj7wWpdIg-x-crR7V9NYry8kklvTZq-3_0m00) 
 
 ## Gradle
 
@@ -16,17 +15,11 @@ Useful Gradle tasks and flags:
 - `--refresh-dependencies`: this flag forces validation of all dependencies. Useful for snapshot versions.
 - `android:lint`: performs Android project validation.
 - `build`: builds sources and archives of every project.
-- `cleanEclipse`: removes Eclipse project data.
-- `cleanIdea`: removes IntelliJ project data.
 - `clean`: removes `build` folders, which store compiled classes and built archives.
-- `eclipse`: generates Eclipse project data.
 - `html:dist`: compiles GWT sources. The compiled application can be found at `html/build/dist`: you can use any HTTP server to deploy it.
 - `html:superDev`: compiles GWT sources and runs the application in SuperDev mode. It will be available at [localhost:8080/html](http://localhost:8080/html). Use only during development.
-- `idea`: generates IntelliJ project data.
-- `lwjgl2:jar`: builds application's runnable jar, which can be found at `lwjgl2/build/libs`.
-- `lwjgl2:run`: starts the application.
-- `lwjgl3:jar`: builds application's runnable jar, which can be found at `lwjgl3/build/libs`.
-- `lwjgl3:run`: starts the application.
+- `desktop:jar`: builds application's runnable jar, which can be found at `desktop/build/libs`.
+- `desktop:run`: starts the application.
 - `server:run`: runs the server application.
 - `test`: runs unit tests (if any).
 
