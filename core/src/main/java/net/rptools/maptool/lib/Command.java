@@ -7,11 +7,8 @@ import java.beans.PropertyChangeListener;
 
 public interface Command {
   boolean isAvailable();
-  String getName();
   void execute();
-  String NAME = "Name";
-  String AVAILABLE = "Available";
+  String AVAILABLE = "available";
   void addPropertyChangeListener(@NonNull PropertyChangeListener listener);
- // void addPropertyChangeListener(@NonNull String propertyName, @NonNull PropertyChangeListener listener);
   void removePropertyChangeListener(@NonNull PropertyChangeListener listener);
 }

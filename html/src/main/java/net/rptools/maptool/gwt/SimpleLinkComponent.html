@@ -1,3 +1,3 @@
 <button v-on:click="execute2()" v-bind:disabled="! model.getConnectCommand().isAvailable()">
-  {{ model.getConnectCommand().getName() }}
+  {{ $t(model.getConnectCommand().getName()) }}
 </button>
