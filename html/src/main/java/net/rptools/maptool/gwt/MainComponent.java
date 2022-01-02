@@ -9,18 +9,8 @@ import net.rptools.maptool.lib.Translator;
 import net.rptools.maptool.viewmodel.MainViewModel;
 
 
-@Component
-public class SimpleLinkComponent implements IsVueComponent, Translator {
+@Component(components = {ConnectToServerDialog.class})
+public class MainComponent implements IsVueComponent, Translator {
   @Data
   MainViewModel model = new MainViewModel();
-
-  @JsMethod
-  void execute() {
-    model.getConnectCommand().execute();
-  }
-
-  @JsMethod
-  void execute2() {
-    Window.alert($t("foobar3!"));
-  }
 }

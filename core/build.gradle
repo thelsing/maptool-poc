@@ -6,9 +6,7 @@ dependencies {
 	api "com.badlogicgames.gdx:gdx:$gdxVersion"
 	api "com.crashinvaders.lml:gdx-kiwi:$lmlVersion"
 	api "com.github.MrStahlfelge.gdx-websockets:core:$websocketVersion"
-	api "org.projectlombok:lombok:$lombokVersion"
 	implementation 'com.google.jsinterop:jsinterop-annotations:2.0.0'
 	implementation 'org.slf4j:slf4j-api:1.7.32'
 	api project(':shared')
-	annotationProcessor "org.projectlombok:lombok:$lombokVersion"
 }

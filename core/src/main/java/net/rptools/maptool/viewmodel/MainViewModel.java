@@ -1,31 +1,27 @@
 package net.rptools.maptool.viewmodel;
 
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
-import jsinterop.annotations.JsType;
-import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
 import net.rptools.maptool.lib.AbstractCommand;
 import net.rptools.maptool.lib.Command;
 import net.rptools.maptool.lib.PropertyChangeSender;
 
-@Slf4j
 public class MainViewModel extends PropertyChangeSender {
-  @Getter
-  @JsProperty
-  private Command connectCommand = new AbstractCommand("Connect to Server") {
+  private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(MainViewModel.class);
+  private static final String CONNECT_DIALOG_OPEN = "connectDialogOpen";
+
+  private Command connectCommand = new AbstractCommand() {
     @Override
-    @JsMethod
     public void execute() {
       log.info("test");
-      setName(getName() + ".");
-      if(getName().endsWith(".........."))
-        setAvailable(false);
+      setConnectDialogOpen(!isConnectDialogOpen());
     }
   };
+  public Command getConnectCommand() { return connectCommand; }
 
-  @Getter
-  private boolean connectDialogOpen = false;
-
-
+  private boolean connectDialogOpen;
+  public boolean isConnectDialogOpen() { return connectDialogOpen; }
+  public void setConnectDialogOpen(boolean value) {
+    var oldValue = connectDialogOpen;
+    firePropertyChange(CONNECT_DIALOG_OPEN, oldValue, value);
+    connectDialogOpen = value;
+  }
 }

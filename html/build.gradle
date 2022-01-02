@@ -68,31 +68,6 @@ sourceSets {
 compileJava.dependsOn(processResources)
 compileJava.options.compilerArgs << '-parameters'
 
-//everything below is for lombok
-configurations {
-    lom
-}
-
-dependencies {
-    lom "org.projectlombok:lombok:${lombokVersion}"
-    implementation configurations.lom.dependencies
-    annotationProcessor configurations.lom.dependencies
-}
-
-draftCompileGwt {
-    doFirst {
-        jvmArgs "-javaagent:${configurations.lom.asPath}=ECJ"
-    }
-}
-
-compileGwt {
-    doFirst {
-        jvmArgs "-javaagent:${configurations.lom.asPath}=ECJ"
-    }
-}
-
-gwtDev {
-    doFirst {
-        jvmArgs "-javaagent:${configurations.lom.asPath}=ECJ"
-    }
+clean.doFirst {
+    delete "war"
 }

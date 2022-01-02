@@ -1,0 +1,31 @@
+<table>
+  <tr>
+    <td>
+      First
+    </td>
+    <td>
+      <button v-on:click="model.getConnectCommand().execute()" v-bind:disabled="!model.getConnectCommand().isAvailable()">
+        {{ $t("server.connect") }}
+      </button>
+    </td>
+    <td>
+      Third
+    </td>
+  </tr>
+  <tr>
+    <td>left</td>
+    <td><div align="center" id="embed-html"/></td>
+    <td>right</td>
+  </tr>
+  <tr>
+    <td>sw</td>
+    <td>
+      <connect-to-server-dialog v-bind:visible="model.isConnectDialogOpen()"/>
+    </td>
+    <td>se</td>
+  </tr>
+</table>
+<script>
+document.getElementById('embed-html').addEventListener('mousedown', handleMouseDown, false);
+document.getElementById('embed-html').addEventListener('mouseup', handleMouseUp, false);
+</script>

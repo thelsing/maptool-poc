@@ -6,7 +6,7 @@ This for the target architecture of this POC:
 ##Note to self:
 For superdevmode to get updates from changed html templates you have to set "Production sources directory" in
 intellij ("File"->"Settings"->"Build, Execute, Deployment"->"Compiler"->"Annotation Processors") to "." for the html
-project.
+project. This is necessary each time after you sync intellij with gradle.
 
 ## Gradle
 
