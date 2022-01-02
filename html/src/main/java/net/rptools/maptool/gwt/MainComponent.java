@@ -13,4 +13,7 @@ import net.rptools.maptool.viewmodel.MainViewModel;
 public class MainComponent implements IsVueComponent, Translator {
   @Data
   MainViewModel model = new MainViewModel();
+
+  @JsMethod
+  void noop() {}
 }

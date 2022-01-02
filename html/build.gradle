@@ -71,3 +71,10 @@ compileJava.options.compilerArgs << '-parameters'
 clean.doFirst {
     delete "war"
 }
+
+task updateWar() {
+    copy {
+        from "src/webapp"
+        into "war"
+    }
+}
