@@ -1,5 +1,5 @@
 <div>
-  <connect-to-server-dialog v-bind:visible="model.isConnectDialogOpen()"/>
+  <connect-to-server-dialog :visible="model.isConnectDialogOpen()"/>
   <div v-if="model.isConnectDialogOpen()" class="modal"/>
 <table>
   <tr>
@@ -7,8 +7,8 @@
       First
     </td>
     <td>
-      <button v-on:click="model.getConnectCommand().execute()" v-bind:disabled="!model.getConnectCommand().isAvailable()">
-        {{ $t("server.connect") }}
+      <button @click="model.getConnectCommand().execute()" :disabled="!model.getConnectCommand().isAvailable()">
+        {{ t.action_clientConnect() }}
       </button>
     </td>
     <td>
@@ -17,7 +17,7 @@
   </tr>
   <tr>
     <td>left</td>
-    <td><div align="center" v-on:mouseup.prevent.stop="noop" v-on:mousedown.prevent.stop="noop" id="embed-html"/></td>
+    <td><div align="center" @mouseup.prevent.stop="noop" @mousedown.prevent.stop="noop" id="embed-html"/></td>
     <td>right</td>
   </tr>
   <tr>

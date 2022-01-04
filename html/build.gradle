@@ -34,7 +34,7 @@ dependencies {
     implementation 'com.google.jsinterop:jsinterop-annotations:2.0.0:sources'
     implementation 'org.slf4gwt:slf4gwt:1.4:sources'
     implementation 'com.axellience:vue-gwt:1.0.0'
-    annotationProcessor 'com.axellience:vue-gwt-processors:1.1.0-SNAPSHOT'
+    annotationProcessor 'com.axellience:vue-gwt-processors:1.0.0'
 	implementation project(':core')
 }
 

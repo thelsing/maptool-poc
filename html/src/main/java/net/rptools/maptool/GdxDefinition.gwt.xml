@@ -12,6 +12,7 @@
     <inherits name='com.axellience.vuegwt.VueGWT'/>
     <inherits name='net.rptools.maptool.Emulation'/>
 
+    <extend-property name="locale" values="ach,cs,da,de,es,fr,it,ja,nl,pl,pt,ru,sv,uk,zh"/>
     <entry-point class="net.rptools.maptool.gwt.GwtLauncher" />
     <set-configuration-property name="gdx.assetpath" value="../assets" />
     <set-configuration-property name="xsiframe.failIfScriptTag" value="FALSE"/>

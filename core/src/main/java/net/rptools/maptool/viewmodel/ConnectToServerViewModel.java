@@ -3,14 +3,13 @@ package net.rptools.maptool.viewmodel;
 import net.rptools.maptool.lib.AbstractCommand;
 import net.rptools.maptool.lib.Command;
 import net.rptools.maptool.lib.PropertyChangeSender;
-import net.rptools.maptool.lib.Translator;
 import net.rptools.maptool.model.RptoolsServer;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ConnectToServerViewModel extends PropertyChangeSender implements Translator {
+public class ConnectToServerViewModel extends PropertyChangeSender {
   private static final String SERVER_NAME = "serverName";
   private static final String USER_NAME = "userName";
   private static final String PORT = "port";
