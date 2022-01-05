@@ -1,5 +1,7 @@
 package net.rptools.maptool.viewmodel;
 
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 import net.rptools.maptool.lib.AbstractCommand;
 import net.rptools.maptool.lib.Command;
 import net.rptools.maptool.lib.PropertyChangeSender;
@@ -18,7 +20,9 @@ public class ConnectToServerViewModel extends PropertyChangeSender {
   private static final String USE_WEB_RTC = "useWebRtc";
   private static final String HOST_NAME = "hostName";
 
+  @JsProperty(name = "none001")
   private List<RptoolsServer> rptoolsServers = new LinkedList<>();
+  @JsProperty
   public List<RptoolsServer> getRptoolsServers() { return rptoolsServers; }
 
   private String serverName;

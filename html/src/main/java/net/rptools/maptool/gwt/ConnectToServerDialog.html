@@ -1,18 +1,85 @@
+<vue-gwt:import class="net.rptools.maptool.model.RptoolsServer"/>
 <div v-if="visible" class="form-popup">
     <form class="form-container">
-        <h1>{{t.ConnectToServerDialog_msg_title()}}</h1>
+        <h3>{{t.ConnectToServerDialog_msg_title()}}</h3>
 
         <label for="username"><b>{{t.ConnectToServerDialog_username()}}</b></label>
-        <input type="text" id="username" required/>
+        <input type="text" id="username"/>
 
         <label for="psw"><b>{{t.ConnectToServerDialog_password()}}</b></label>
         <input type="password" id="psw"/>
+        <br/>
 
         <input type="checkbox" id="use-pubkey"/>
         <label for="use-pubkey" class="chkbox">{{t.ConnectToServerDialog_usePublicKey()}}</label>
 
         <input type="checkbox" id="use-webrtc"/>
-        <label for="use-webrtc" class="chkbox" >{{t.WebRTC_toggleUseWebRTC()}}</label>
+        <label for="use-webrtc" class="chkbox">{{t.WebRTC_toggleUseWebRTC()}}</label>
+
+        <div class="tabs">
+
+            <div class="tab">
+                <input type="radio" id="tab-1" name="tab-group-1" checked>
+                <label class="tab-label" for="tab-1">RPTools.net</label>
+
+                <div class="tab-content">
+                    <label for="server"><b>{{t.ConnectToServerDialog_server_name()}}</b></label>
+                    <input type="text" id="server"/>
+                    <button type="button" class="btn">{{t.Button_refresh()}}</button>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>{{t.ConnectToServerDialog_msg_headingServer()}}</th>
+                            <th>{{t.ConnectToServerDialog_msg_headingVersion()}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="RptoolsServer server in model.getRptoolsServers()">
+                            <td>{{server.getName()}}</td>
+                            <td>{{server.getVersion()}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab">
+                <input type="radio" id="tab-2" name="tab-group-1">
+                <label class="tab-label" for="tab-2">{{t.ConnectToServerDialog_tab_lan()}}</label>
+
+                <div class="tab-content">
+                    <label for="rescan-button"><b>{{t.ConnectToServerDialog_server_local()}}</b></label>
+                    <button type="button" id="rescan-button" class="btn">{{t.Button_rescan()}}</button>
+                    <ul>
+                        <li>lanserver</li>
+                        <li>lanserver</li>
+                        <li>lanserver</li>
+                        <li>lanserver</li>
+                        <li>lanserver</li>
+                        <li>lanserver</li>
+                        <li>lanserver</li>
+                        <li>lanserver</li>
+                        <li>lanserver</li>
+                        <li>lanserver</li>
+                        <li>lanserver</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab">
+                <input type="radio" id="tab-3" name="tab-group-1">
+                <label class="tab-label" for="tab-3">{{t.ConnectToServerDialog_tab_direct()}}</label>
+                <div class="tab-content">
+                    <label for="address"><b>{{t.ConnectToServerDialog_server_address()}}</b></label>
+                    <input type="text" id="address" />
+                    <br/>
+                    <label for="port"><b>{{t.ConnectToServerDialog_server_port()}}</b></label>
+                    <input type="text" id="port" />
+                </div>
+            </div>
+
+        </div>
+
 
         <button type="button" class="btn">{{t.Button_ok()}}</button>
         <button type="button" class="btn cancel">{{t.Button_cancel()}}</button>

@@ -1,8 +1,13 @@
 package net.rptools.maptool.model;
 
 public class RptoolsServer {
-  String name;
-  String version;
+  private String name;
+  private String version;
+
+  public RptoolsServer(String name, String version) {
+    this.name = name;
+    this.version = version;
+  }
 
   public String getName() {
     return name;
