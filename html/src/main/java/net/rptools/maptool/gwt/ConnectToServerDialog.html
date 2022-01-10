@@ -1,19 +1,20 @@
 <vue-gwt:import class="net.rptools.maptool.model.RptoolsServer"/>
+
 <div v-if="visible" class="form-popup">
     <form class="form-container">
         <h3>{{t.ConnectToServerDialog_msg_title()}}</h3>
 
         <label for="username"><b>{{t.ConnectToServerDialog_username()}}</b></label>
-        <input type="text" id="username"/>
+        <input type="text" id="username" :value="userName"/>
 
         <label for="psw"><b>{{t.ConnectToServerDialog_password()}}</b></label>
-        <input type="password" id="psw"/>
+        <input type="password" id="psw" :value="password"/>
         <br/>
 
-        <input type="checkbox" id="use-pubkey"/>
+        <input type="checkbox" id="use-pubkey" :checked="useKeyFile" />
         <label for="use-pubkey" class="chkbox">{{t.ConnectToServerDialog_usePublicKey()}}</label>
 
-        <input type="checkbox" id="use-webrtc"/>
+        <input type="checkbox" id="use-webrtc" :checked="useWebRTC"/>
         <label for="use-webrtc" class="chkbox">{{t.WebRTC_toggleUseWebRTC()}}</label>
 
         <div class="tabs">
@@ -24,7 +25,7 @@
 
                 <div class="tab-content">
                     <label for="server"><b>{{t.ConnectToServerDialog_server_name()}}</b></label>
-                    <input type="text" id="server"/>
+                    <input type="text" id="server" :value="serverName"/>
                     <button type="button" class="btn">{{t.Button_refresh()}}</button>
                     <table>
                         <thead>
@@ -34,7 +35,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="RptoolsServer server in model.getRptoolsServers()">
+                        <tr v-for="RptoolsServer server in getRpToolsServers()">
                             <td>{{server.getName()}}</td>
                             <td>{{server.getVersion()}}</td>
                         </tr>
@@ -50,18 +51,8 @@
                 <div class="tab-content">
                     <label for="rescan-button"><b>{{t.ConnectToServerDialog_server_local()}}</b></label>
                     <button type="button" id="rescan-button" class="btn">{{t.Button_rescan()}}</button>
-                    <ul>
-                        <li>lanserver</li>
-                        <li>lanserver</li>
-                        <li>lanserver</li>
-                        <li>lanserver</li>
-                        <li>lanserver</li>
-                        <li>lanserver</li>
-                        <li>lanserver</li>
-                        <li>lanserver</li>
-                        <li>lanserver</li>
-                        <li>lanserver</li>
-                        <li>lanserver</li>
+                    <ul v-for="String server in getLanServers()">
+                        <li>{{server}}</li>
                     </ul>
                 </div>
             </div>
@@ -71,10 +62,10 @@
                 <label class="tab-label" for="tab-3">{{t.ConnectToServerDialog_tab_direct()}}</label>
                 <div class="tab-content">
                     <label for="address"><b>{{t.ConnectToServerDialog_server_address()}}</b></label>
-                    <input type="text" id="address" />
+                    <input type="text" id="address" :value="hostName"/>
                     <br/>
                     <label for="port"><b>{{t.ConnectToServerDialog_server_port()}}</b></label>
-                    <input type="text" id="port" />
+                    <input type="text" id="port" :value="port"/>
                 </div>
             </div>
 

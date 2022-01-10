@@ -20,10 +20,15 @@ public class ConnectToServerViewModel extends PropertyChangeSender {
   private static final String USE_WEB_RTC = "useWebRtc";
   private static final String HOST_NAME = "hostName";
 
-  @JsProperty(name = "none001")
+  @SuppressWarnings("vue-gwt-collections")
   private List<RptoolsServer> rptoolsServers = new LinkedList<>();
   @JsProperty
   public List<RptoolsServer> getRptoolsServers() { return rptoolsServers; }
+
+  @SuppressWarnings("vue-gwt-collections")
+  private List<String> lanServers = new LinkedList<>();
+  @JsProperty
+  public List<String> getLanServers() { return lanServers; }
 
   private String serverName;
   public String getServerName() { return serverName; }
